@@ -6,6 +6,8 @@ public class ManagerFactory {
     public ManagerFactory() {
         super();
     }
+    private ProjetManager projetManager;
+    private TicketManager ticketManager;
 
     /**
      * Renvoie l'instance unique de la classe (design pattern Singleton).
@@ -18,10 +20,18 @@ public class ManagerFactory {
 
 
     public ProjetManager getProjetManager() {
-        return new ProjetManager();
+        return  this.projetManager;
+    }
+
+    public void setProjetManager(ProjetManager projetManager) {
+        this.projetManager = projetManager;
+    }
+
+    public void setTicketManager(TicketManager ticketManager) {
+        this.ticketManager = ticketManager;
     }
 
     public TicketManager getTicketManager() {
-        return new TicketManager();
+        return this.ticketManager;
     }
 }
