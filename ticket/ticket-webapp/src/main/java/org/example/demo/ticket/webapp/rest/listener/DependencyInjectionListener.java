@@ -1,7 +1,7 @@
 package org.example.demo.ticket.webapp.rest.listener;
 
-import org.example.demo.ticket.business.manager.ManagerFactory;
-import org.example.demo.ticket.business.manager.ProjetManager;
+import org.example.demo.ticket.business.impl.ManagerFactory;
+import org.example.demo.ticket.business.impl.manager.ProjetManagerImpl;
 import org.example.demo.ticket.business.manager.TicketManager;
 import org.example.demo.ticket.webapp.rest.resource.ticket.AbstractResource;
 
@@ -13,7 +13,7 @@ public class DependencyInjectionListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ManagerFactory vManagerFactory = new ManagerFactory();
-        vManagerFactory.setProjetManager(new ProjetManager());
+        vManagerFactory.setProjetManager(new ProjetManagerImpl());
         vManagerFactory.setTicketManager(new TicketManager());
         AbstractResource.setManagerFactory(vManagerFactory);
     }
